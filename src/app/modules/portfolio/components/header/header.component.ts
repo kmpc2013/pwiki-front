@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { IKnowledge } from '../../interface/IKnowledge.interface';
 
 @Component({
   selector: 'app-header',

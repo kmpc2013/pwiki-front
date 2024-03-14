@@ -3,11 +3,13 @@ import { IProjects } from '../../interface/IProjects.interface';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EDialogPanelClass } from '../../enum/EDialogPanelClass.enum';
 import { DialogProjectsComponent } from '../dialog/dialog-projects/dialog-projects.component';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [MatDialogModule],
+  imports: [MatDialogModule,CommonModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
 })
@@ -16,11 +18,10 @@ export class ProjectsComponent {
   public arrayProjects = signal<IProjects[]>([
     {
       src: 'assets/img/pwiki.png',
-      alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
-      sortTitle: 'TITLE',
-      width: '75px',
-      height: '75px',
+      alt: 'Imagem do projeto pwiki',
+      type: 'Projeto',
+      sortTitle: 'Portifólio with Wiki',
+      title: 'Portifólio with Wiki',
       description: 'DESCRIPTION',
       links: [
         {
@@ -32,10 +33,9 @@ export class ProjectsComponent {
     {
       src: 'assets/img/pwiki.png',
       alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
+      type: 'Procedimento',
       sortTitle: 'TITLE',
-      width: '75px',
-      height: '75px',
+      title: 'TITLEXXXXXXXXXXXXXXXX',
       description: 'DESCRIPTION',
       links: [
         {
@@ -47,10 +47,9 @@ export class ProjectsComponent {
     {
       src: 'assets/img/pwiki.png',
       alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
+      type: 'Paper',
       sortTitle: 'TITLE',
-      width: '75px',
-      height: '75px',
+      title: 'TITLEXXXXXXXXXXXXXXXX',
       description: 'DESCRIPTION',
       links: [
         {
@@ -62,10 +61,9 @@ export class ProjectsComponent {
     {
       src: 'assets/img/pwiki.png',
       alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
+      type: 'Projeto',
       sortTitle: 'TITLE',
-      width: '75px',
-      height: '75px',
+      title: 'TITLEXXXXXXXXXXXXXXXX',
       description: 'DESCRIPTION',
       links: [
         {
@@ -77,10 +75,9 @@ export class ProjectsComponent {
     {
       src: 'assets/img/pwiki.png',
       alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
+      type: 'Procedimento',
       sortTitle: 'TITLE',
-      width: '75px',
-      height: '75px',
+      title: 'TITLEXXXXXXXXXXXXXXXX',
       description: 'DESCRIPTION',
       links: [
         {
@@ -92,10 +89,9 @@ export class ProjectsComponent {
     {
       src: 'assets/img/pwiki.png',
       alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
+      type: 'Projeto',
       sortTitle: 'TITLE',
-      width: '75px',
-      height: '75px',
+      title: 'TITLEXXXXXXXXXXXXXXXX',
       description: 'DESCRIPTION',
       links: [
         {
@@ -110,6 +106,18 @@ export class ProjectsComponent {
       data,
       panelClass: EDialogPanelClass.PROJECTS,
     });
+  };
+  public setTypeDocColor(docType: string) {
+    switch (docType) {
+      case "Projeto":
+        return "#FFE4E1";
+      case "Procedimento":
+        return "#7FFFD4";
+      case "Paper":
+        return "#B0E0E6";
+      default:
+        return "#D3D3D3";
+    }
   }
-  
 }
+

@@ -1,19 +1,12 @@
 <div class="container">
-  <h2>Projetos desenvolvidos</h2>
+  <h2>Documentos</h2>
   <ul>
-    @for(item of arrayProjects(); track item){
-    <li>
+    <li *ngFor="let item of arrayProjects()">
       <button (click)="openDialog(item)">
-        <img
-          [src]="item.src"
-          [alt]="item.alt"
-          [attr.width]="item.width"
-          [attr.height]="item.height"
-          loading="lazy"
-        />
+        <img [src]="item.src" [alt]="item.alt" loading="lazy" />
+        <p class="itemType" [style.background]="setTypeDocColor(item.type)">{{ item.type }}</p>
         <p>{{ item.sortTitle }}</p>
       </button>
     </li>
-    }
   </ul>
 </div>

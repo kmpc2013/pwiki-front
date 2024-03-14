@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: var(--black);
+  background: var(--p04);
 }
 h1,
 h2,
@@ -15,11 +15,11 @@ h1,
 h2,
 h3,
 a {
-  color: var(--white);
+  color: var(--black);
   text-decoration: none;
 }
 p {
-  color: var(--grey);
+  color: var(--black);
   font-size: 16px;
   margin: 10px 0;
 }
