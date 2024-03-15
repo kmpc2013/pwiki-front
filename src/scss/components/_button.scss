@@ -38,10 +38,11 @@
   cursor: pointer;
   padding: 10px;
   font-size: 16px;
-  border-radius: 7px;
-  color: var(--white);
-  background: var(--p05);
+  border-radius: 100px;
+  color: var(--p01);
+  background: none;
+  border: 2px solid var(--p01);
   &:hover {
-    background: var(--p01);
+    background: var(--p05);
   }
 }
