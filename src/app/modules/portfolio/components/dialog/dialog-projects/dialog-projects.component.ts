@@ -5,6 +5,7 @@ import {
   MatDialogModule,
   MatDialogRef,
 } from '@angular/material/dialog';
+import { IExperiences } from '../../../interface/IExperiences.interface';
 
 @Component({
   selector: 'app-dialog-projects',
@@ -16,9 +17,9 @@ import {
 export class DialogProjectsComponent implements OnInit {
   constructor(
     private _diaLogRef: MatDialogRef<DialogProjectsComponent>,
-    @Inject(MAT_DIALOG_DATA) private _data: IProjects
+    @Inject(MAT_DIALOG_DATA) private _data: IExperiences
   ) {}
-  public getData = signal<IProjects | null>(null);
+  public getData = signal<IExperiences | null>(null);
 
   ngOnInit(): void {
     this.getData.set(this._data);

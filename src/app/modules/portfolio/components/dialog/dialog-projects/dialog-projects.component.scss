@@ -44,4 +44,18 @@
   nav {
     display: flex;
   }
+  mat-dialog-actions{
+    button{
+      padding: 10px;
+      border-radius: 100px;
+      border: 2px solid var(--p01);
+      transition: 0.5s;
+      cursor: pointer;
+      background: none;
+      &:hover {
+        background: var(--p05);
+        transition: 1s;
+      }
+    }
+  }
 }

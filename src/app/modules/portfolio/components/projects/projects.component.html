@@ -1,12 +1,33 @@
-<div class="container">
+<!-- <div class="container">
   <h2>Documentos</h2>
   <ul>
-    <li *ngFor="let item of arrayProjects()">
+    @for(item of arrayProjects(); track item){
+    <li>
       <button (click)="openDialog(item)">
         <img [src]="item.src" [alt]="item.alt" loading="lazy" />
-        <p class="itemType" [style.background]="setTypeDocColor(item.type)">{{ item.type }}</p>
-        <p>{{ item.sortTitle }}</p>
+        <p class="itemType" [style.background]="setTypeDocColor(item.type)">
+          {{ item.type }}
+        </p>
+        <p class="itemSortTitle">{{ item.sortTitle }}</p>
       </button>
     </li>
+    }
   </ul>
+</div> -->
+<div class="container">
+  <h2>Documentos</h2>
+  @for(item of arrayProjects(); track item;){
+  <details>
+    <summary>
+      <p class="itemType" [style.background]="setTypeDocColor(item.type)">
+        {{ item.type }}
+      </p>
+      <p class="itemTitle">
+        {{ item.title }}
+      </p>
+    </summary>
+    <article [innerHTML]="item.description"></article>
+    <a [href]="item.src" target="_blank" class="saibaMaisButton">Saiba mais</a>
+  </details>
+  }
 </div>

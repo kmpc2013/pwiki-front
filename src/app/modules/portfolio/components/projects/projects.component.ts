@@ -20,12 +20,11 @@ export class ProjectsComponent {
       src: 'assets/img/pwiki.png',
       alt: 'Imagem do projeto pwiki',
       type: 'Projeto',
-      sortTitle: 'Portifólio with Wiki',
       title: 'Portifólio with Wiki',
-      description: 'DESCRIPTION',
+      description: 'Este é um projeto com intuito de criar um portfolio com uma wiki para que possamos ser mais claros sobre nossas especialidades, tornando o processo de pesquisa de perfil mais eficiente.',
       links: [
         {
-          name: 'LINKS.NAME',
+          name: 'Veja mais',
           href: 'LINKS.HREF',
         },
       ],
@@ -34,8 +33,7 @@ export class ProjectsComponent {
       src: 'assets/img/pwiki.png',
       alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
       type: 'Procedimento',
-      sortTitle: 'TITLE',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
+      title: 'Este é um projeto com intuito de criar um portfolio com uma wiki para que possamos ser mais claros sobre nossas especialidades, tornando o processo de pesquisa de perfil mais eficiente.',
       description: 'DESCRIPTION',
       links: [
         {
@@ -48,7 +46,6 @@ export class ProjectsComponent {
       src: 'assets/img/pwiki.png',
       alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
       type: 'Paper',
-      sortTitle: 'TITLE',
       title: 'TITLEXXXXXXXXXXXXXXXX',
       description: 'DESCRIPTION',
       links: [
@@ -57,49 +54,7 @@ export class ProjectsComponent {
           href: 'LINKS.HREF',
         },
       ],
-    },
-    {
-      src: 'assets/img/pwiki.png',
-      alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      type: 'Projeto',
-      sortTitle: 'TITLE',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
-      description: 'DESCRIPTION',
-      links: [
-        {
-          name: 'LINKS.NAME',
-          href: 'LINKS.HREF',
-        },
-      ],
-    },
-    {
-      src: 'assets/img/pwiki.png',
-      alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      type: 'Procedimento',
-      sortTitle: 'TITLE',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
-      description: 'DESCRIPTION',
-      links: [
-        {
-          name: 'LINKS.NAME',
-          href: 'LINKS.HREF',
-        },
-      ],
-    },
-    {
-      src: 'assets/img/pwiki.png',
-      alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      type: 'Projeto',
-      sortTitle: 'TITLE',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
-      description: 'DESCRIPTION',
-      links: [
-        {
-          name: 'LINKS.NAME',
-          href: 'LINKS.HREF',
-        },
-      ],
-    },
+    }
   ]);
   public openDialog(data: IProjects) {
     this.#dialog.open(DialogProjectsComponent, {
