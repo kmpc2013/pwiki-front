@@ -30,7 +30,8 @@
 
 .saibaMaisButton {
   display: flex;
-  width: 120px;
+  height: 30px;
+  width: 110px;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -41,7 +42,7 @@
   border-radius: 100px;
   color: var(--p01);
   background: none;
-  border: 2px solid var(--p01);
+  border: 1.5px solid var(--p01);
   &:hover {
     background: var(--p05);
   }

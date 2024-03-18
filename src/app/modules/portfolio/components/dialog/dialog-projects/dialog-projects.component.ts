@@ -28,4 +28,5 @@ export class DialogProjectsComponent implements OnInit {
   public closeModal() {
     return this._diaLogRef.close();
   }
+
 }

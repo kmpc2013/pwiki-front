@@ -1,78 +1,71 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, WritableSignal, signal } from '@angular/core';
 import { IProjects } from '../../interface/IProjects.interface';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { EDialogPanelClass } from '../../enum/EDialogPanelClass.enum';
-import { DialogProjectsComponent } from '../dialog/dialog-projects/dialog-projects.component';
-import { CommonModule } from '@angular/common';
-
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [MatDialogModule,CommonModule],
+  imports: [],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
-  #dialog = inject(MatDialog);
+  public arrayFiltered: IProjects[] = [];
+
   public arrayProjects = signal<IProjects[]>([
     {
-      src: 'assets/img/pwiki.png',
-      alt: 'Imagem do projeto pwiki',
       type: 'Projeto',
-      title: 'Portifólio with Wiki',
-      description: 'Este é um projeto com intuito de criar um portfolio com uma wiki para que possamos ser mais claros sobre nossas especialidades, tornando o processo de pesquisa de perfil mais eficiente.',
-      links: [
-        {
-          name: 'Veja mais',
-          href: 'LINKS.HREF',
-        },
-      ],
+      title: 'Projeto 01',
+      description:
+        'Este é um projeto com intuito de criar um portfolio com uma wiki para que possamos ser mais claros sobre nossas especialidades, tornando o processo de pesquisa de perfil mais eficiente.',
+      link: 'https://docs.google.com/document/d/e/2PACX-1vSM0JiPD_Rx4rz_2er4HKLeB6Jz8pUBp5Pp6_xSWbvA6mJwhUvN4uwXvXu9tJmf7bJGz8RjGpXyIle3/pub',
     },
     {
-      src: 'assets/img/pwiki.png',
-      alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
-      type: 'Procedimento',
-      title: 'Este é um projeto com intuito de criar um portfolio com uma wiki para que possamos ser mais claros sobre nossas especialidades, tornando o processo de pesquisa de perfil mais eficiente.',
-      description: 'DESCRIPTION',
-      links: [
-        {
-          name: 'LINKS.NAME',
-          href: 'LINKS.HREF',
-        },
-      ],
-    },
-    {
-      src: 'assets/img/pwiki.png',
-      alt: 'ALTXXXXXXXXXXXXXXXXXXXXX',
       type: 'Paper',
-      title: 'TITLEXXXXXXXXXXXXXXXX',
-      description: 'DESCRIPTION',
-      links: [
-        {
-          name: 'LINKS.NAME',
-          href: 'LINKS.HREF',
-        },
-      ],
-    }
+      title: 'Paper 01',
+      description:
+        'Este é um projeto com intuito de criar um portfolio com uma wiki para que possamos ser mais claros sobre nossas especialidades, tornando o processo de pesquisa de perfil mais eficiente.',
+      link: '',
+    },
+    {
+      type: 'Procedimento',
+      title: 'Procedimento 01',
+      description:
+        'Este é um projeto com intuito de criar um portfolio com uma wiki para que possamos ser mais claros sobre nossas especialidades, tornando o processo de pesquisa de perfil mais eficiente.',
+      link: '',
+    },
   ]);
-  public openDialog(data: IProjects) {
-    this.#dialog.open(DialogProjectsComponent, {
-      data,
-      panelClass: EDialogPanelClass.PROJECTS,
+  //search(e: any): void{}
+  search(e: Event) {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+
+    this.arrayFiltered = this.arrayProjects().filter((arrayFiltered) => {
+      return arrayFiltered.title.toLowerCase().includes(value.toLowerCase());
     });
-  };
+  }
+
   public setTypeDocColor(docType: string) {
     switch (docType) {
-      case "Projeto":
-        return "#FFE4E1";
-      case "Procedimento":
-        return "#7FFFD4";
-      case "Paper":
-        return "#B0E0E6";
+      case 'Projeto':
+        return '#FFE4E1';
+      case 'Procedimento':
+        return '#7FFFD4';
+      case 'Paper':
+        return '#B0E0E6';
       default:
-        return "#D3D3D3";
+        return '#D3D3D3';
+    }
+  }
+
+  ngOnInit(): void {
+    this.arrayFiltered = this.arrayProjects();
+  }
+
+  public handleKeyPress(event: any) {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Impede a ação padrão do evento (atualização da tela)
+      this.search(event); // Chama a função de busca
     }
   }
 }
-

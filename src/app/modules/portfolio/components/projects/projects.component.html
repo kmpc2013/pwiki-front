@@ -1,6 +1,25 @@
 <div class="container">
   <h2>Documentos</h2>
-  @for(item of arrayProjects(); track item;){
+  <div class="search-container">
+    <form>
+      <figure>
+        <img
+          class="icon-search"
+          src="assets/icons/search.svg"
+          alt="Icone de lupa para pesquisa"
+          onclick="handleKeyPress($event)" 
+          style="cursor: pointer;"
+        />
+        <input
+          type="text"
+          placeholder="Buscar documento"
+          (input)="search($event)"
+          (keydown)="handleKeyPress($event)"
+        />
+      </figure>
+    </form>
+  </div>
+  @for(item of arrayFiltered; track item;){
   <details>
     <summary>
       <p class="itemType" [style.background]="setTypeDocColor(item.type)">
@@ -11,7 +30,7 @@
       </p>
     </summary>
     <article [innerHTML]="item.description"></article>
-    <a [href]="item.src" target="_blank" class="saibaMaisButton">Saiba mais</a>
+    <a [href]="item.link" target="_blank" class="saibaMaisButton">Saiba mais</a>
   </details>
   }
 </div>
