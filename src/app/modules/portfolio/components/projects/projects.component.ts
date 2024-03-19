@@ -39,7 +39,7 @@ export class ProjectsComponent {
   search(e: Event) {
     const target = e.target as HTMLInputElement;
     const value = target.value;
-
+    console.log("search")
     this.arrayFiltered = this.arrayProjects().filter((arrayFiltered) => {
       return arrayFiltered.title.toLowerCase().includes(value.toLowerCase());
     });
@@ -65,6 +65,7 @@ export class ProjectsComponent {
   public handleKeyPress(event: any) {
     if (event.key === 'Enter') {
       event.preventDefault(); // Impede a ação padrão do evento (atualização da tela)
+      console.log("handleKeyPress")
       this.search(event); // Chama a função de busca
     }
   }
